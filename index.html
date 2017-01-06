@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Messagerie</h1>
+    <div class="form-inline ">
+        <div class="form-group">
+            <button type="button" id="add" class="btn btn-primary ">Ajouter</button>
+        </div>
+        <div class="form-group ">
+            <input type="text" class="form-control" id="object" placeholder="Objet">
+        </div>
+        <div class="form-group ">
+            <input type="text" class="form-control" id="message" placeholder="Message">
+        </div>
+        <div class="  radio">
+            <label>
+                <input type="radio"  name="entree" id="entree"> Urgent
+            </label>
+        </div>
+        <div class="  radio">
+            <label>
+                <input type="radio"  name="entree" id="entree" checked> Normal
+            </label>
+        </div>
+    </div>
+    <br>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><input  type="checkbox" id="selectAll" /> </th>
+                <th>Objet</th>
+                <th>Message </th>
+                <th>Etat</th>
+            </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+        <button id="deleteSelection" class="btn btn-danger">Supprimer la selection</button>
+    </div>
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDLbTuvNvZXpGkCSpYb8O7uz9orql78zgU",
+        authDomain: "emailapp-56ddf.firebaseapp.com",
+        databaseURL: "https://emailapp-56ddf.firebaseio.com",
+        storageBucket: "emailapp-56ddf.appspot.com",
+        messagingSenderId: "465285195015"
+    };
+    fb= firebase.initializeApp(config);
+
+    // Get the Database service for the default app
+    /*    var defaultDatabase = fb.database();
+     defaultDatabase.ref('messages/').push({
+     objet : 'objet msg 7',
+     msg : 'Message 7',
+     etat : 'normal'
+     })
+     defaultDatabase.ref('messages').on('child_added',function(snap){console.log('Child Added',snap.val(),snap.key)
+     var msg = snap.val();
+     var row=creerLigne(msg.objet,msg.msg,msg.etat);
+     ajouterLigne(row);
+     })*/
+
+</script>
+<script src="js/mail.js"></script>
+
+</body>
+</html>
+
